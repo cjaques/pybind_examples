@@ -6,6 +6,7 @@ If you need help, just send me a mail christian.jaques@gmail.com
 To compile, run 
 
 ```
+cd example1
 python setup.py build_ext --inplace
 ```
 
