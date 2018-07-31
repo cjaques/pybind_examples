@@ -13,7 +13,7 @@ if (buf1.size != buf2.size)
 	throw std::runtime_error("Input shapes must match");
 
 /*  allocate the output buffer */
-auto result = py::array_t<double>(buf1.size);
+py::array_t<double> result = py::array_t<double>(buf1.size);
 auto buf3 = result.request();
 
 double *ptr1 = (double *) buf1.ptr, *ptr2 = (double *) buf2.ptr, *ptr3 = (double *) buf3.ptr;
