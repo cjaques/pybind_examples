@@ -1,7 +1,9 @@
+# Christian Jaques, CBI group, Idiap, 2018
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import sys
 import setuptools
+import os
 
 __version__ = '0.0.2'
 
@@ -72,6 +74,10 @@ class BuildExt(build_ext):
     }
 
     if sys.platform == 'darwin':
+        # https://stackoverflow.com/questions/25595098/force-setup-py-to-use-my-custom-compiler
+        # solves the problem "invalid argument '-std=c++14' not allowed with 'C'" --> use clang++ instead of clang
+        os.environ["CC"] = "clang++"
+        os.environ["CXX"] = "clang++"
         c_opts['unix'] += ['-stdlib=libc++', '-mmacosx-version-min=10.7']
 
     def build_extensions(self):
