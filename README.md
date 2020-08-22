@@ -28,3 +28,18 @@ You can now run the code with
 ```
 python ex.py
 ```
+
+**Example 2**
+```
+cd example2
+python setup.py build_ext --inplace
+```
+
+This will build `wrapper.so` and copy it next to `setup.py`.
+You can now run the code with 
+```
+python ex.py
+```
+
+This code shows how to create a deep-copy of an array. 
+
